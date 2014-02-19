@@ -9,10 +9,19 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UITextField *txtPrice;
+@property (strong, nonatomic) IBOutlet UITextField *txtDollarsOff;
+@property (strong, nonatomic) IBOutlet UITextField *txtDiscount;
+@property (strong, nonatomic) IBOutlet UITextField *txtAdditionalDiscount;
+@property (strong, nonatomic) IBOutlet UITextField *txtTax;
+@property (strong, nonatomic) IBOutlet UILabel *lblOriginalPrice;
+@property (strong, nonatomic) IBOutlet UILabel *lblDiscountPrice;
 
 @end
 
 @implementation ViewController
+
+@synthesize txtPrice, txtDollarsOff, txtDiscount, txtAdditionalDiscount, txtTax, lblOriginalPrice, lblDiscountPrice;
 
 - (void)viewDidLoad
 {

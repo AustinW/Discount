@@ -22,6 +22,7 @@
 		1E6CDB9918B447330063EB37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6CDB7818B447330063EB37 /* UIKit.framework */; };
 		1E6CDBA118B447330063EB37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E6CDB9F18B447330063EB37 /* InfoPlist.strings */; };
 		1E6CDBA318B447330063EB37 /* DiscountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6CDBA218B447330063EB37 /* DiscountTests.m */; };
+		1E6CDBAE18B49A800063EB37 /* Price.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6CDBAD18B49A800063EB37 /* Price.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		1E6CDB9E18B447330063EB37 /* DiscountTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DiscountTests-Info.plist"; sourceTree = "<group>"; };
 		1E6CDBA018B447330063EB37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E6CDBA218B447330063EB37 /* DiscountTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscountTests.m; sourceTree = "<group>"; };
+		1E6CDBAC18B49A800063EB37 /* Price.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Price.h; sourceTree = "<group>"; };
+		1E6CDBAD18B49A800063EB37 /* Price.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Price.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				1E6CDB8318B447330063EB37 /* AppDelegate.h */,
 				1E6CDB8418B447330063EB37 /* AppDelegate.m */,
 				1E6CDB8618B447330063EB37 /* Main_iPhone.storyboard */,
+				1E6CDBAC18B49A800063EB37 /* Price.h */,
+				1E6CDBAD18B49A800063EB37 /* Price.m */,
 				1E6CDB8918B447330063EB37 /* Main_iPad.storyboard */,
 				1E6CDB8C18B447330063EB37 /* ViewController.h */,
 				1E6CDB8D18B447330063EB37 /* ViewController.m */,
@@ -254,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E6CDB8E18B447330063EB37 /* ViewController.m in Sources */,
+				1E6CDBAE18B49A800063EB37 /* Price.m in Sources */,
 				1E6CDB8518B447330063EB37 /* AppDelegate.m in Sources */,
 				1E6CDB8118B447330063EB37 /* main.m in Sources */,
 			);

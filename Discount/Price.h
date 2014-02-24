@@ -10,17 +10,17 @@
 
 @interface Price : NSObject
 
-@property float price;
-@property float dollarsOff;
-@property float discount;
-@property float additionalDiscount;
-@property float tax;
+@property NSDecimalNumber *price;
+@property NSDecimalNumber *dollarsOff;
+@property NSDecimalNumber *discount;
+@property NSDecimalNumber *additionalDiscount;
+@property NSDecimalNumber *tax;
 
-@property (readonly) float discountPrice;
-@property (readonly) float originalPrice;
+@property (readonly) NSDecimalNumber *discountPrice;
+@property (readonly) NSDecimalNumber *originalPrice;
 
-- (float) discountPrice;
-- (float) originalPrice;
+- (NSDecimalNumber *) discountPrice;
+- (NSDecimalNumber *) originalPrice;
 + (Price *) mainPrice;
 
 @end

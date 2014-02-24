@@ -480,6 +480,7 @@
 				1E6CDBA818B447330063EB37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E6CDBA918B447330063EB37 /* Build configuration list for PBXNativeTarget "DiscountTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +489,7 @@
 				1E6CDBAB18B447330063EB37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

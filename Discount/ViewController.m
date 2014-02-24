@@ -16,26 +16,24 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtTax;
 @property (strong, nonatomic) IBOutlet UILabel *lblOriginalPrice;
 @property (strong, nonatomic) IBOutlet UILabel *lblDiscountPrice;
+@property (strong, nonatomic) NSArray *allTextFields;
+
+@property (strong) Price *priceModel;
+
 - (IBAction)calculate:(UIButton *)sender;
 
 @end
 
 @implementation ViewController
 
-@synthesize txtPrice, txtDollarsOff, txtDiscount, txtAdditionalDiscount, txtTax, lblOriginalPrice, lblDiscountPrice;
+@synthesize txtPrice, txtDollarsOff, txtDiscount, txtAdditionalDiscount, txtTax, lblOriginalPrice, lblDiscountPrice, priceModel;
 
 - (void)touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event
 {
     NSLog( @"resigning first responder for inputTextField; Touch event!" );
     
-    NSArray *textFields = @[self.txtPrice, self.txtDollarsOff, self.txtDiscount, self.txtAdditionalDiscount, self.txtTax];
-    
     if ( ! [self isFirstResponder]) {
-        for (UITextField *txtField in textFields) {
-            if ([txtField isFirstResponder]) {
-                [txtField resignFirstResponder];
-            };
-        }
+        [self closeKeyboard];
     }
 }
 
@@ -46,6 +44,9 @@
     
     NSLog(@"Calculate!");
     
+    [self closeKeyboard];
+    
+    [self calculate:nil];
     
     return YES;
     
@@ -65,14 +66,14 @@
                                    initWithTitle: @"Previous"
                                    style: UIBarButtonItemStyleDone
                                    target: self
-                                   action:@selector(previousClicked:)];
+                                   action:@selector(txtNavClicked:)];
     prevButton.tag = prevTag;
     
     UIBarButtonItem *nextButton = [[UIBarButtonItem alloc]
                                    initWithTitle: @"Next"
                                    style: UIBarButtonItemStyleDone
                                    target: self
-                                   action:@selector(nextClicked:)];
+                                   action:@selector(txtNavClicked:)];
     nextButton.tag = nextTag;
     
     UIBarButtonItem *flexButton = [[UIBarButtonItem alloc]
@@ -95,44 +96,8 @@
     return YES;
 }
 
-//- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-//    
-//    UITextField *next = theTextField.nextTextField;
-//    if (next) {
-//        [next becomeFirstResponder];
-//    } else {
-//        [theTextField resignFirstResponder];
-//    }
-//    
-//    return NO;
-//}
-
-- (void)nextClicked: (UIBarButtonItem*) sender
+- (void)txtNavClicked: (UIBarButtonItem*) sender
 {
-    NSLog(@"Next clicked");
-    
-    NSInteger tag = sender.tag;
-    
-    switch (tag) {
-        case 0:
-            [txtPrice becomeFirstResponder]; break;
-        case 1:
-            [txtDollarsOff becomeFirstResponder]; break;
-        case 2:
-            [txtDiscount becomeFirstResponder]; break;
-        case 3:
-            [txtAdditionalDiscount becomeFirstResponder]; break;
-        case 4:
-            [txtTax becomeFirstResponder]; break;
-        default:
-            break;
-    }
-}
-
-- (void)previousClicked: (UIBarButtonItem*) sender
-{
-    NSLog(@"Previous clicked");
-    
     NSInteger tag = sender.tag;
     
     switch (tag) {
@@ -155,29 +120,66 @@
 {
     NSLog( @"done pressed resigning first respond for inputTextField; Touch event!" );
     
-    NSArray *textFields = @[self.txtPrice, self.txtDollarsOff, self.txtDiscount, self.txtAdditionalDiscount, self.txtTax];
+    [self closeKeyboard];
+}
+
+- (void) closeKeyboard
+{
+    NSLog(@"Closing keyboard...");
     
-    if ( ! [self isFirstResponder]) {
-        for (UITextField *txtField in textFields) {
-            if ([txtField isFirstResponder]) {
-                [txtField resignFirstResponder];
-            };
-        }
+    for (UITextField *txtField in self.allTextFields) {
+        if ([txtField isFirstResponder]) {
+            [txtField resignFirstResponder];
+        };
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    self.priceModel = [Price priceModel];
+    
+    self.allTextFields = @[self.txtPrice, self.txtDollarsOff, self.txtDiscount, self.txtAdditionalDiscount, self.txtTax];
 }
 
-- (void)didReceiveMemoryWarning
+- (void) assignTxtFieldsToModel
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.priceModel.price              = [NSDecimalNumber decimalNumberWithString:self.txtPrice.text];
+    self.priceModel.dollarsOff         = [NSDecimalNumber decimalNumberWithString:self.txtDollarsOff.text];
+    self.priceModel.discount           = [NSDecimalNumber decimalNumberWithString:self.txtDiscount.text];
+    self.priceModel.additionalDiscount = [NSDecimalNumber decimalNumberWithString:self.txtAdditionalDiscount.text];
+    self.priceModel.tax                = [NSDecimalNumber decimalNumberWithString:self.txtTax.text];
 }
 
 - (IBAction)calculate:(UIButton *)sender {
+    
+    if ([self.txtPrice.text isEqualToString:@""]) {
+        self.txtPrice.text = @"0";
+    }
+    
+    if ([self.txtDollarsOff.text isEqualToString:@""]) {
+        self.txtDollarsOff.text = @"0";
+    }
+    
+    if ([self.txtDiscount.text isEqualToString:@""]) {
+        self.txtDiscount.text = @"0";
+    }
+    
+    if ([self.txtAdditionalDiscount.text isEqualToString:@""]) {
+        self.txtAdditionalDiscount.text = @"0";
+    }
+    
+    if ([self.txtTax.text isEqualToString:@""]) {
+        self.txtTax.text = @"0";
+    }
+    
+    [self assignTxtFieldsToModel];
+    
+    self.lblOriginalPrice.text = [@"$" stringByAppendingString:self.txtPrice.text];
+    [self.priceModel calculate];
+    self.lblDiscountPrice.text = [@"$" stringByAppendingString:[self.priceModel.discountPrice]];
+    
+    NSLog(@"Price: %@", self.priceModel.price);
 }
 @end

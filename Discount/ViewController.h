@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Price.h"
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
 

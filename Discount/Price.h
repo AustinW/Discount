@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+// Singleton
 @interface Price : NSObject
 
 @property NSDecimalNumber *price;
@@ -21,6 +22,7 @@
 
 - (NSDecimalNumber *) discountPrice;
 - (NSDecimalNumber *) originalPrice;
-+ (Price *) mainPrice;
+
++ (Price *) priceModel;
 
 @end

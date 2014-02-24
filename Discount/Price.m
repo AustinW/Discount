@@ -10,20 +10,23 @@
 
 @implementation Price
 
+static Price *priceModel = nil;
+
 @synthesize price, dollarsOff, discount, additionalDiscount, tax, discountPrice, originalPrice;
 
-- (float) discountPrice
+- (void) calculate
 {
-    return 0.0;
+    
 }
 
-- (float) originalPrice
++ (Price *) priceModel
 {
-    return 0.0;
-}
-
-+ (Price *) mainPrice
-{
-    return self;
+    @synchronized(self) {
+        if (priceModel == nil) {
+            priceModel = [[Price alloc] init];
+        }
+    }
+    
+    return priceModel;
 }
 @end

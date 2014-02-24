@@ -11,17 +11,19 @@
 // Singleton
 @interface Price : NSObject
 
-@property NSDecimalNumber *price;
-@property NSDecimalNumber *dollarsOff;
-@property NSDecimalNumber *discount;
-@property NSDecimalNumber *additionalDiscount;
-@property NSDecimalNumber *tax;
+@property float price;
+@property float dollarsOff;
+@property float discount;
+@property float additionalDiscount;
+@property float tax;
 
-@property (readonly) NSDecimalNumber *discountPrice;
-@property (readonly) NSDecimalNumber *originalPrice;
+@property (readonly) float discountPrice;
+@property (readonly) float originalPrice;
 
-- (NSDecimalNumber *) discountPrice;
-- (NSDecimalNumber *) originalPrice;
+- (float) discountPrice;
+- (float) originalPrice;
+
+- (void) calculate;
 
 + (Price *) priceModel;
 

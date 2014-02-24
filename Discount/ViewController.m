@@ -145,21 +145,30 @@
 
 - (void) assignTxtFieldsToModel
 {
-    self.priceModel.price              = [NSDecimalNumber decimalNumberWithString:self.txtPrice.text];
-    self.priceModel.dollarsOff         = [NSDecimalNumber decimalNumberWithString:self.txtDollarsOff.text];
-    self.priceModel.discount           = [NSDecimalNumber decimalNumberWithString:self.txtDiscount.text];
-    self.priceModel.additionalDiscount = [NSDecimalNumber decimalNumberWithString:self.txtAdditionalDiscount.text];
-    self.priceModel.tax                = [NSDecimalNumber decimalNumberWithString:self.txtTax.text];
+    self.priceModel.price              = [self.txtPrice.text floatValue];
+    self.priceModel.dollarsOff         = [self.txtDollarsOff.text floatValue];
+    self.priceModel.discount           = [self.txtDiscount.text floatValue];
+    self.priceModel.additionalDiscount = [self.txtAdditionalDiscount.text floatValue];
+    self.priceModel.tax                = [self.txtTax.text floatValue];
+}
+
+- (NSString *) convertToDecimalString:(NSString *)txtFieldString
+{
+    return [NSString stringWithFormat:@"%.2f", [[NSDecimalNumber decimalNumberWithString:txtFieldString] floatValue]];
 }
 
 - (IBAction)calculate:(UIButton *)sender {
     
     if ([self.txtPrice.text isEqualToString:@""]) {
-        self.txtPrice.text = @"0";
+        self.txtPrice.text = @"0.00";
+    } else {
+        self.txtPrice.text = [self convertToDecimalString:self.txtPrice.text];
     }
     
     if ([self.txtDollarsOff.text isEqualToString:@""]) {
-        self.txtDollarsOff.text = @"0";
+        self.txtDollarsOff.text = @"0.00";
+    } else {
+        self.txtDollarsOff.text = [self convertToDecimalString:self.txtDollarsOff.text];
     }
     
     if ([self.txtDiscount.text isEqualToString:@""]) {
@@ -167,7 +176,9 @@
     }
     
     if ([self.txtAdditionalDiscount.text isEqualToString:@""]) {
-        self.txtAdditionalDiscount.text = @"0";
+        self.txtAdditionalDiscount.text = @"0.00";
+    } else {
+        self.txtAdditionalDiscount.text = [self convertToDecimalString:self.txtAdditionalDiscount.text];
     }
     
     if ([self.txtTax.text isEqualToString:@""]) {
@@ -177,9 +188,9 @@
     [self assignTxtFieldsToModel];
     
     self.lblOriginalPrice.text = [@"$" stringByAppendingString:self.txtPrice.text];
-    [self.priceModel calculate];
-    self.lblDiscountPrice.text = [@"$" stringByAppendingString:[self.priceModel.discountPrice]];
     
-    NSLog(@"Price: %@", self.priceModel.price);
+    [self.priceModel calculate];
+    
+    self.lblDiscountPrice.text = [@"$" stringByAppendingString:[NSString stringWithFormat:@"%.2f", self.priceModel.discountPrice]];
 }
 @end

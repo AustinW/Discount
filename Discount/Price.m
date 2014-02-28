@@ -12,14 +12,24 @@
 
 static Price *priceModel = nil;
 
-@synthesize price, dollarsOff, discount, additionalDiscount, tax, discountPrice = _discountPrice, originalPrice;
+@synthesize price, centsOff, discount, additionalDiscount, tax, discountPrice = _discountPrice;
 
 - (void) calculate
 {
-    float discountedAmount = self.price * self.discount / 100,
-          taxAmount        = self.price * self.tax / 100;
+    int discountedAmount = [[NSNumber numberWithFloat:roundf(self.price * self.discount / 100.0)] intValue],
+        taxAmount        = [[NSNumber numberWithFloat:roundf(self.price * self.tax / 100.0)] intValue];
     
-    _discountPrice = (self.price - discountedAmount - self.dollarsOff - self.additionalDiscount) + taxAmount;
+    _discountPrice = (self.price - discountedAmount - self.centsOff - self.additionalDiscount) + taxAmount;
+}
+
+- (float) originalPrice
+{
+    return roundf((self.price + roundf(self.price * (self.tax / 100.0)) / 100.0));
+}
+
++ (int) centsFromDollars:(float) dollars
+{
+    return [[NSNumber numberWithFloat:roundf(dollars * 100.0)] intValue];
 }
 
 + (Price *) priceModel

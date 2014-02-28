@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Austin White. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DiscountViewController.h"
+#import "GraphViewController.h"
 
-@interface ViewController ()
+@interface DiscountViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *txtPrice;
 @property (strong, nonatomic) IBOutlet UITextField *txtDollarsOff;
 @property (strong, nonatomic) IBOutlet UITextField *txtDiscount;
@@ -24,7 +25,7 @@
 
 @end
 
-@implementation ViewController
+@implementation DiscountViewController
 
 @synthesize txtPrice, txtDollarsOff, txtDiscount, txtAdditionalDiscount, txtTax, lblOriginalPrice, lblDiscountPrice, priceModel;
 
@@ -145,10 +146,10 @@
 
 - (void) assignTxtFieldsToModel
 {
-    self.priceModel.price              = [self.txtPrice.text floatValue];
-    self.priceModel.dollarsOff         = [self.txtDollarsOff.text floatValue];
+    self.priceModel.price              = [Price centsFromDollars:[self.txtPrice.text floatValue]];
+    self.priceModel.centsOff           = [Price centsFromDollars:[self.txtDollarsOff.text floatValue]];
     self.priceModel.discount           = [self.txtDiscount.text floatValue];
-    self.priceModel.additionalDiscount = [self.txtAdditionalDiscount.text floatValue];
+    self.priceModel.additionalDiscount = [Price centsFromDollars:[self.txtAdditionalDiscount.text floatValue]];
     self.priceModel.tax                = [self.txtTax.text floatValue];
 }
 
@@ -187,10 +188,20 @@
     
     [self assignTxtFieldsToModel];
     
-    self.lblOriginalPrice.text = [@"$" stringByAppendingString:self.txtPrice.text];
+    self.lblOriginalPrice.text = [NSString stringWithFormat:@"$%.2f", [self.priceModel originalPrice]];
     
     [self.priceModel calculate];
     
     self.lblDiscountPrice.text = [@"$" stringByAppendingString:[NSString stringWithFormat:@"%.2f", self.priceModel.discountPrice]];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showGraphSegue"]) {
+        GraphViewController *graphViewController = (GraphViewController *) segue.destinationViewController;
+        
+        NSLog(@"Price model: %f", self.priceModel.price);
+        // Pass the price model to the other view controller
+        graphViewController.price = self.priceModel;
+    }
 }
 @end

@@ -15,7 +15,6 @@
 		1E6CDB8518B447330063EB37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6CDB8418B447330063EB37 /* AppDelegate.m */; };
 		1E6CDB8818B447330063EB37 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E6CDB8618B447330063EB37 /* Main_iPhone.storyboard */; };
 		1E6CDB8B18B447330063EB37 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E6CDB8918B447330063EB37 /* Main_iPad.storyboard */; };
-		1E6CDB8E18B447330063EB37 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6CDB8D18B447330063EB37 /* ViewController.m */; };
 		1E6CDB9018B447330063EB37 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E6CDB8F18B447330063EB37 /* Images.xcassets */; };
 		1E6CDB9718B447330063EB37 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6CDB9618B447330063EB37 /* XCTest.framework */; };
 		1E6CDB9818B447330063EB37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6CDB7418B447330063EB37 /* Foundation.framework */; };
@@ -23,6 +22,8 @@
 		1E6CDBA118B447330063EB37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E6CDB9F18B447330063EB37 /* InfoPlist.strings */; };
 		1E6CDBA318B447330063EB37 /* DiscountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6CDBA218B447330063EB37 /* DiscountTests.m */; };
 		1E6CDBAE18B49A800063EB37 /* Price.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6CDBAD18B49A800063EB37 /* Price.m */; };
+		1EDC2FB218C099F600B1776D /* DiscountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC2FB118C099F600B1776D /* DiscountViewController.m */; };
+		1EDC2FB518C09A8700B1776D /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC2FB418C09A8700B1776D /* GraphViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +49,6 @@
 		1E6CDB8418B447330063EB37 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1E6CDB8718B447330063EB37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		1E6CDB8A18B447330063EB37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		1E6CDB8C18B447330063EB37 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1E6CDB8D18B447330063EB37 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1E6CDB8F18B447330063EB37 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1E6CDB9518B447330063EB37 /* DiscountTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiscountTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E6CDB9618B447330063EB37 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -58,6 +57,10 @@
 		1E6CDBA218B447330063EB37 /* DiscountTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscountTests.m; sourceTree = "<group>"; };
 		1E6CDBAC18B49A800063EB37 /* Price.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Price.h; sourceTree = "<group>"; };
 		1E6CDBAD18B49A800063EB37 /* Price.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Price.m; sourceTree = "<group>"; };
+		1EDC2FB018C099F600B1776D /* DiscountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscountViewController.h; sourceTree = "<group>"; };
+		1EDC2FB118C099F600B1776D /* DiscountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscountViewController.m; sourceTree = "<group>"; };
+		1EDC2FB318C09A8700B1776D /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
+		1EDC2FB418C09A8700B1776D /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,11 +123,13 @@
 				1E6CDB8318B447330063EB37 /* AppDelegate.h */,
 				1E6CDB8418B447330063EB37 /* AppDelegate.m */,
 				1E6CDB8618B447330063EB37 /* Main_iPhone.storyboard */,
+				1EDC2FB318C09A8700B1776D /* GraphViewController.h */,
+				1EDC2FB418C09A8700B1776D /* GraphViewController.m */,
 				1E6CDBAC18B49A800063EB37 /* Price.h */,
 				1E6CDBAD18B49A800063EB37 /* Price.m */,
 				1E6CDB8918B447330063EB37 /* Main_iPad.storyboard */,
-				1E6CDB8C18B447330063EB37 /* ViewController.h */,
-				1E6CDB8D18B447330063EB37 /* ViewController.m */,
+				1EDC2FB018C099F600B1776D /* DiscountViewController.h */,
+				1EDC2FB118C099F600B1776D /* DiscountViewController.m */,
 				1E6CDB8F18B447330063EB37 /* Images.xcassets */,
 				1E6CDB7B18B447330063EB37 /* Supporting Files */,
 			);
@@ -258,10 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E6CDB8E18B447330063EB37 /* ViewController.m in Sources */,
 				1E6CDBAE18B49A800063EB37 /* Price.m in Sources */,
 				1E6CDB8518B447330063EB37 /* AppDelegate.m in Sources */,
 				1E6CDB8118B447330063EB37 /* main.m in Sources */,
+				1EDC2FB518C09A8700B1776D /* GraphViewController.m in Sources */,
+				1EDC2FB218C099F600B1776D /* DiscountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

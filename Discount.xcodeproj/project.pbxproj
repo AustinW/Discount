@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E25387018C19D6C002DDF9A /* GraphPartial.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E25386F18C19D6C002DDF9A /* GraphPartial.m */; };
 		1E6CDB7518B447330063EB37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6CDB7418B447330063EB37 /* Foundation.framework */; };
 		1E6CDB7718B447330063EB37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6CDB7618B447330063EB37 /* CoreGraphics.framework */; };
 		1E6CDB7918B447330063EB37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6CDB7818B447330063EB37 /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E25386E18C19D6C002DDF9A /* GraphPartial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphPartial.h; sourceTree = "<group>"; };
+		1E25386F18C19D6C002DDF9A /* GraphPartial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphPartial.m; sourceTree = "<group>"; };
 		1E6CDB7118B447330063EB37 /* Discount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discount.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E6CDB7418B447330063EB37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1E6CDB7618B447330063EB37 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,6 +126,8 @@
 				1E6CDB8318B447330063EB37 /* AppDelegate.h */,
 				1E6CDB8418B447330063EB37 /* AppDelegate.m */,
 				1E6CDB8618B447330063EB37 /* Main_iPhone.storyboard */,
+				1E25386E18C19D6C002DDF9A /* GraphPartial.h */,
+				1E25386F18C19D6C002DDF9A /* GraphPartial.m */,
 				1EDC2FB318C09A8700B1776D /* GraphViewController.h */,
 				1EDC2FB418C09A8700B1776D /* GraphViewController.m */,
 				1E6CDBAC18B49A800063EB37 /* Price.h */,
@@ -265,6 +270,7 @@
 			files = (
 				1E6CDBAE18B49A800063EB37 /* Price.m in Sources */,
 				1E6CDB8518B447330063EB37 /* AppDelegate.m in Sources */,
+				1E25387018C19D6C002DDF9A /* GraphPartial.m in Sources */,
 				1E6CDB8118B447330063EB37 /* main.m in Sources */,
 				1EDC2FB518C09A8700B1776D /* GraphViewController.m in Sources */,
 				1EDC2FB218C099F600B1776D /* DiscountViewController.m in Sources */,

@@ -14,17 +14,14 @@
 @property int price;
 @property int centsOff;
 @property float discount;
-@property int additionalDiscount;
+@property float additionalDiscount;
 @property float tax;
 
-@property (readonly) int discountPrice;
-@property (readonly) int originalPrice;
-
-- (float) originalPrice;
-
-- (void) calculate;
+- (int) originalPrice;
+- (int) discountPrice;
 
 + (int) centsFromDollars:(float) dollars;
++ (float) dollarsFromCents:(int) cents;
 
 + (Price *) priceModel;
 

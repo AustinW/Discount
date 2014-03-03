@@ -149,7 +149,7 @@
     self.priceModel.price              = [Price centsFromDollars:[self.txtPrice.text floatValue]];
     self.priceModel.centsOff           = [Price centsFromDollars:[self.txtDollarsOff.text floatValue]];
     self.priceModel.discount           = [self.txtDiscount.text floatValue];
-    self.priceModel.additionalDiscount = [Price centsFromDollars:[self.txtAdditionalDiscount.text floatValue]];
+    self.priceModel.additionalDiscount = [self.txtAdditionalDiscount.text floatValue];
     self.priceModel.tax                = [self.txtTax.text floatValue];
 }
 
@@ -177,7 +177,7 @@
     }
     
     if ([self.txtAdditionalDiscount.text isEqualToString:@""]) {
-        self.txtAdditionalDiscount.text = @"0.00";
+        self.txtAdditionalDiscount.text = @"0";
     } else {
         self.txtAdditionalDiscount.text = [self convertToDecimalString:self.txtAdditionalDiscount.text];
     }
@@ -188,18 +188,18 @@
     
     [self assignTxtFieldsToModel];
     
-    self.lblOriginalPrice.text = [NSString stringWithFormat:@"$%.2f", [self.priceModel originalPrice]];
+    self.lblOriginalPrice.text = [NSString stringWithFormat:@"$%.2f", [Price dollarsFromCents:[self.priceModel originalPrice]]];
     
-    [self.priceModel calculate];
+    NSLog(@"Discount cents: %d", [self.priceModel discountPrice]);
     
-    self.lblDiscountPrice.text = [@"$" stringByAppendingString:[NSString stringWithFormat:@"%.2f", self.priceModel.discountPrice]];
+    self.lblDiscountPrice.text = [@"$" stringByAppendingString:[NSString stringWithFormat:@"%.2f", [Price dollarsFromCents:self.priceModel.discountPrice]]];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showGraphSegue"]) {
         GraphViewController *graphViewController = (GraphViewController *) segue.destinationViewController;
         
-        NSLog(@"Price model: %f", self.priceModel.price);
+        NSLog(@"Price model: %d", self.priceModel.price);
         // Pass the price model to the other view controller
         graphViewController.price = self.priceModel;
     }

@@ -27,6 +27,21 @@
 
 @implementation DiscountViewController
 
+// Handle the swipe gesture
+- (void)gotoGraphView:(id)sender
+{
+    NSLog(@"Swiping...");
+    GraphViewController *graphViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"graph-view-controller"];
+    
+    [self calculate:nil];
+    
+    NSLog(@"Price model: %d", self.priceModel.price);
+    // Pass the price model to the other view controller
+    graphViewController.price = self.priceModel;
+    
+    [self.navigationController pushViewController:graphViewController animated:YES];
+}
+
 @synthesize txtPrice, txtDollarsOff, txtDiscount, txtAdditionalDiscount, txtTax, lblOriginalPrice, lblDiscountPrice, priceModel;
 
 - (void)touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event
@@ -41,6 +56,7 @@
 #define _ABS( x ) ((x) < (0) ? (-x) : (x))
 #define NUM_TEXTFIELDS 5
 
+// Calculate if "Done" is clicked
 - (BOOL) textFieldShouldReturn:(UITextField *) textField {
     
     NSLog(@"Calculate!");
@@ -53,6 +69,7 @@
     
 }
 
+// Add some previous and next buttons for navigation of the text fields
 - (BOOL)textFieldShouldBeginEditing: (UITextField *) textField
 {
     NSLog(@"Right before");
@@ -142,6 +159,13 @@
     self.priceModel = [Price priceModel];
     
     self.allTextFields = @[self.txtPrice, self.txtDollarsOff, self.txtDiscount, self.txtAdditionalDiscount, self.txtTax];
+    
+    // Add swipe gesture recognizer
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gotoGraphView:)];
+    
+    swipeLeft.numberOfTouchesRequired = 1;
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeLeft];
 }
 
 - (void) assignTxtFieldsToModel
@@ -195,10 +219,12 @@
     self.lblDiscountPrice.text = [@"$" stringByAppendingString:[NSString stringWithFormat:@"%.2f", [Price dollarsFromCents:self.priceModel.discountPrice]]];
 }
 
+// Segue handler
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showGraphSegue"]) {
         GraphViewController *graphViewController = (GraphViewController *) segue.destinationViewController;
         
+        [self calculate:nil];
         NSLog(@"Price model: %d", self.priceModel.price);
         // Pass the price model to the other view controller
         graphViewController.price = self.priceModel;

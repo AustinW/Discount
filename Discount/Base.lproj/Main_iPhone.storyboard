@@ -7,7 +7,7 @@
         <!--Discount View Controller - Discount-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="DiscountViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="discount-view-controller" id="vXZ-lx-hvc" customClass="DiscountViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tyd-ph-4CE"/>
                         <viewControllerLayoutGuide type="bottom" id="PqN-35-g8G"/>
@@ -171,6 +171,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="DWn-iy-MZq" secondAttribute="bottom" constant="85" id="AYb-6G-REc"/>
                             <constraint firstAttribute="bottom" secondItem="eeq-m2-dpt" secondAttribute="bottom" constant="115" id="F4h-0C-EUL"/>
@@ -205,7 +206,7 @@
         <!--Graph View Controller-->
         <scene sceneID="DM5-S9-djb">
             <objects>
-                <viewController id="cY1-CT-yQQ" customClass="GraphViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="graph-view-controller" id="cY1-CT-yQQ" customClass="GraphViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fIW-CJ-0KB"/>
                         <viewControllerLayoutGuide type="bottom" id="waV-07-CcO"/>

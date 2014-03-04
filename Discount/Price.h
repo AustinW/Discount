@@ -23,6 +23,8 @@
 + (int) centsFromDollars:(float) dollars;
 + (float) dollarsFromCents:(int) cents;
 
++ (NSString *)shortenedMoneyFormat:(unsigned long long)value;
+
 + (Price *) priceModel;
 
 @end

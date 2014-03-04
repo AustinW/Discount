@@ -29,37 +29,22 @@
 
 #pragma mark - Drawing
 
-#define CORNER_FONT_STANDARD_HEIGHT 180.0
-#define CORNER_RADIUS 5.0
-
-- (CGFloat)cornerScaleFactor { return self.bounds.size.height / CORNER_FONT_STANDARD_HEIGHT; }
-- (CGFloat)cornerRadius { return CORNER_RADIUS * [self cornerScaleFactor]; }
-- (CGFloat)cornerOffset { return [self cornerRadius] / 3.0; }
-
 - (void)drawRect:(CGRect)rect
 {
-    
-    NSLog(@"Color: %@", self.color);
-    
+    // Draw in the background color
     if (self.color) {
         [self.color setFill];
         UIRectFill(self.bounds);
     }
 }
 
-- (void)drawCorners
-{
-    
-}
-
 #pragma mark - Initialization
 - (void) setup
 {
+    // Setup initial settings for drawing
     self.backgroundColor = nil;
     self.opaque = NO;
     self.contentMode = UIViewContentModeRedraw;
-    
-//    [self setNeedsDisplay];
 }
 
 - (void)awakeFromNib

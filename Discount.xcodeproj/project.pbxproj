@@ -23,6 +23,7 @@
 		1E6CDBA118B447330063EB37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E6CDB9F18B447330063EB37 /* InfoPlist.strings */; };
 		1E6CDBA318B447330063EB37 /* DiscountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6CDBA218B447330063EB37 /* DiscountTests.m */; };
 		1E6CDBAE18B49A800063EB37 /* Price.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6CDBAD18B49A800063EB37 /* Price.m */; };
+		1EC0B19C18C5BFCE00720C6A /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1EC0B19B18C5BFCE00720C6A /* README.txt */; };
 		1EDC2FB218C099F600B1776D /* DiscountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC2FB118C099F600B1776D /* DiscountViewController.m */; };
 		1EDC2FB518C09A8700B1776D /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC2FB418C09A8700B1776D /* GraphViewController.m */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		1E6CDBA218B447330063EB37 /* DiscountTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscountTests.m; sourceTree = "<group>"; };
 		1E6CDBAC18B49A800063EB37 /* Price.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Price.h; sourceTree = "<group>"; };
 		1E6CDBAD18B49A800063EB37 /* Price.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Price.m; sourceTree = "<group>"; };
+		1EC0B19B18C5BFCE00720C6A /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		1EDC2FB018C099F600B1776D /* DiscountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscountViewController.h; sourceTree = "<group>"; };
 		1EDC2FB118C099F600B1776D /* DiscountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscountViewController.m; sourceTree = "<group>"; };
 		1EDC2FB318C09A8700B1776D /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				1E6CDB8918B447330063EB37 /* Main_iPad.storyboard */,
 				1EDC2FB018C099F600B1776D /* DiscountViewController.h */,
 				1EDC2FB118C099F600B1776D /* DiscountViewController.m */,
+				1EC0B19B18C5BFCE00720C6A /* README.txt */,
 				1E6CDB8F18B447330063EB37 /* Images.xcassets */,
 				1E6CDB7B18B447330063EB37 /* Supporting Files */,
 			);
@@ -250,6 +253,7 @@
 				1E6CDB9018B447330063EB37 /* Images.xcassets in Resources */,
 				1E6CDB8818B447330063EB37 /* Main_iPhone.storyboard in Resources */,
 				1E6CDB7F18B447330063EB37 /* InfoPlist.strings in Resources */,
+				1EC0B19C18C5BFCE00720C6A /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
